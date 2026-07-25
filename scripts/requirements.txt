@@ -1,0 +1,22 @@
+# knowledge-wiki skill dependencies
+# Install with: pip install -r requirements.txt
+
+# Core
+pyyaml>=6.0
+
+# Duplicate detection
+simhash>=2.1
+python-Levenshtein>=0.25
+
+# Document conversion
+# marker-pdf>=1.0  # Optional - requires heavy dependencies
+# pymupdf>=1.23.0  # Fallback for PDF
+# python-docx>=1.1  # For DOCX
+# openpyxl>=3.1     # For XLSX
+# pandas>=2.0       # Optional for CSV/XLSX
+
+# Minimum working set (no heavy ML deps):
+# pip install pyyaml simhash python-Levenshtein
+
+# Full set with document conversion:
+# pip install pyyaml simhash python-Levenshtein pymupdf python-docx openpyxl pandas

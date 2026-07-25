@@ -1,0 +1,23 @@
+# knowledge-wiki skill configuration
+# Copy this to ~/.config/knowledge-wiki/config.yaml and edit paths as needed
+
+# Vault root - where knowledge markdown files are stored
+# vault_root: "/path/to/workspace/knowledge"
+vault_root: ""
+
+# Inbox root - where raw source files land before processing
+# inbox_root: "/path/to/workspace/inbox"
+inbox_root: ""
+
+# Archive root - where superseded/old pages are moved
+# archive_root: "/path/to/workspace/archive"
+archive_root: ""
+
+# Optional: workspace root (parent of vault/inbox/archive)
+# workspace_root: ""
+
+# If paths are empty, the skill will auto-detect:
+# 1. Check HERMES_WORKSPACE env var
+# 2. Check ~/.hermes/config.yaml for terminal.cwd
+# 3. Walk up from cwd looking for AGENTS.md
+# 4. Default to ~/hermes-workspace/
