@@ -29,7 +29,7 @@ The original **LLM Wiki** (by Andrej Karpathy) and **LLM Wiki V2** (by Rohit G) 
 
 ### Core Philosophy
 
-| Aspect | LLM Wiki (Karpathy) | LLM Wiki V2 (rohitg00) | **knowledge-wiki (ours)** |
+| Aspect | LLM Wiki (Karpathy) | LLM Wiki V2 (rohitg00) | **knowledge-wiki** |
 |--------|---------------------|------------------------|---------------------------|
 | **Purpose** | Personal knowledge base for LLMs | Evolved methodology with memory lifecycle | **Workspace-integrated, agent-usable vault** |
 | **Architecture** | 3 page types (Entity, Concept, Procedure) | 3 types + confidence + supersession | **7 categories × 6 page types = 42 combinations** |
