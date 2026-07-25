@@ -47,7 +47,7 @@ The original **LLM Wiki** (by Andrej Karpathy) and **LLM Wiki V2** (by Rohit G) 
 | Query | ❌ | ❌ | ✅ (filed research answers) |
 | Archive Note | ❌ | ❌ | ✅ (superseded placeholders) |
 
-### Structural Innovations (Ours)
+### Structural Innovations (knowledge-wiki)
 
 | Feature | LLM Wiki | LLM Wiki V2 | **knowledge-wiki** |
 |---------|----------|-------------|-------------------|
@@ -60,7 +60,7 @@ The original **LLM Wiki** (by Andrej Karpathy) and **LLM Wiki V2** (by Rohit G) 
 | **Portable Config** | ❌ | ❌ | ✅ `config.yaml` via env/auto-detect/defaults |
 | **Workspace Template** | ❌ | ❌ | ✅ Bundled AGENTS.md + instructions/ + knowledge/ |
 
-### Agent Workflow Integration (Ours Only)
+### Agent Workflow Integration (knowledge-wiki only)
 
 ```
 User Task
@@ -80,7 +80,7 @@ Agent continues with verified knowledge map
 
 **Key differentiator:** The skill is **callable via Hermes skill interface** from a formal workflow handoff, not a standalone tool.
 
-### Quality Gates (Ours Only)
+### Quality Gates (knowledge-wiki only)
 
 | Gate | Trigger | Blocks |
 |------|---------|--------|
@@ -89,7 +89,7 @@ Agent continues with verified knowledge map
 | **Duplicate Finder** | On demand / per-page | Near-duplicate titles, content similarity, wikilink overlap |
 | **Discoverability Check** | `full_rebuild` | Master index reachable, category indexes consistent |
 
-### What We Borrowed
+### What Is Borrowed
 
 | From LLM Wiki | From LLM Wiki V2 |
 |---------------|------------------|
@@ -97,7 +97,7 @@ Agent continues with verified knowledge map
 | Entity → Concept → Procedure flow | Supersession chains (`supersedes:`) |
 | Category indexes | Typed knowledge graph (our `related` + templates) |
 
-### What We Added (Workspace-Native)
+### What Is Added (Workspace-Native)
 
 1. **Governance layer** — AGENTS.md + 8 instruction files
 2. **Handoff protocol** — Explicit payload between workflows
