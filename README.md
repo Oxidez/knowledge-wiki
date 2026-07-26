@@ -1,6 +1,6 @@
-# knowledge-wiki Skill — Portable Install Package
+# knowledge-wiki Skill & knowledge-subcategory-classifier Skill ** Install Package
 
-This package contains everything needed to install the **knowledge-wiki** skill on any computer with Hermes Agent installed.
+This package contains everything needed to install the **knowledge-wiki** skill and the companion **knowledge-subcategory-classifier** skill on any computer with Hermes Agent installed.
 
 ## Powerful Combination: knowledge-wiki + Web Search
 
@@ -316,12 +316,6 @@ python3 -m knowledge_wiki full_rebuild
 > - After `index_update()` for new/updated pages
 > - In CI/CD if configured
 
-## License
-
-MIT — Use freely in your Hermes workspace.
-
----
-
 ## knowledge-subcategory-classifier Skill
 
 This companion skill (included in the package) provides the **mandatory classification rules** for the `devices/` category subcategories: `boards/`, `microcontrollers/`, `sensors/`, `actuators/`.
@@ -360,3 +354,7 @@ Add new subcategory rules here when:
 - New category gets subcategories (e.g., `software/` → `libraries/`, `frameworks/`, `tools/`)
 - New device types emerge that don't fit existing four
 - User requests new classification dimension
+
+## License
+
+MIT — Use freely in your Hermes workspace.
