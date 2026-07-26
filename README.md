@@ -2,6 +2,31 @@
 
 This package contains everything needed to install the **knowledge-wiki** skill on any computer with Hermes Agent installed.
 
+## Powerful Combination: knowledge-wiki + Web Search
+
+**When paired with a web-search skill (e.g., SearXNG, `searxng` skill), knowledge-wiki becomes a complete knowledge acquisition pipeline for Hermes agents:**
+
+```
+User Query / Research Task
+    ↓
+Web Search Skill (SearXNG) → Fetches current web content, APIs, docs
+    ↓
+Agent processes & extracts relevant information
+    ↓
+knowledge-wiki.index_update() → Creates validated, indexed markdown pages
+    ↓
+Full knowledge vault with quality gates (validator, duplicates, inconsistencies)
+    ↓
+Future agents query via knowledge_workflow.md → skill handoff → verified answers
+```
+
+**Why this works well:**
+- **SearXNG** provides *private, local web search* (no API keys, no rate limits)
+- **knowledge-wiki** provides *governed, validated storage* with agent-callable interface
+- Together: **autonomous research → structured knowledge → reliable retrieval**
+
+Install `searxng` skill alongside this one for a complete setup.
+
 ---
 
 ## Why This Skill Exists
