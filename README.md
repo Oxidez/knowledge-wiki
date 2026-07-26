@@ -1,4 +1,6 @@
-# knowledge-wiki Skill & knowledge-subcategory-classifier Skill ** Install Package
+# knowledge-wiki Skill
+# knowledge-subcategory-classifier Skill
+# Install Package
 
 This package contains everything needed to install the **knowledge-wiki** skill and the companion **knowledge-subcategory-classifier** skill on any computer with Hermes Agent installed.
 
