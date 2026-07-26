@@ -161,22 +161,24 @@ knowledge-wiki/
 │   ├── master-index.md     # Top-level catalog
 │   ├── archive-note.md     # Archive placeholders
 │   └── schema-template.md  # Frontmatter schema + tag taxonomy
-└── workspace/              # Complete workspace template (copied on install)
-    ├── AGENTS.md           # Workspace constitution
-    ├── instructions/       # All 8 instruction files
-    ├── knowledge/          # 7-category vault with indexes + 4 device pages
-    │   ├── devices/
-    │   ├── software/
-    │   ├── programming/
-    │   ├── electronics/
-    │   ├── networking/
-    │   ├── operating-systems/
-    │   └── ai/
-    ├── inbox/              # Raw input processing
-    ├── archive/            # Archived pages
-    ├── tasks/              # Task-mode work
-    ├── projects/           # Project-mode work
-    └── documentation/notes/
+├── workspace/              # Complete workspace template (copied on install)
+│   ├── AGENTS.md           # Workspace constitution
+│   ├── instructions/       # All 8 instruction files
+│   ├── knowledge/          # 7-category vault with indexes + 4 device pages
+│   │   ├── devices/
+│   │   ├── software/
+│   │   ├── programming/
+│   │   ├── electronics/
+│   │   ├── networking/
+│   │   ├── operating-systems/
+│   │   └── ai/
+│   ├── inbox/              # Raw input processing
+│   ├── archive/            # Archived pages
+│   ├── tasks/              # Task-mode work
+│   ├── projects/           # Project-mode work
+│   └── documentation/notes/
+└── knowledge-subcategory-classifier/  # Device classification rules (boards, MCUs, sensors, actuators)
+    └── SKILL.md            # Classification logic for knowledge_workflow.md Step 2
 ```
 
 ## Quick Install
@@ -317,3 +319,44 @@ python3 -m knowledge_wiki full_rebuild
 ## License
 
 MIT — Use freely in your Hermes workspace.
+
+---
+
+## knowledge-subcategory-classifier Skill
+
+This companion skill (included in the package) provides the **mandatory classification rules** for the `devices/` category subcategories: `boards/`, `microcontrollers/`, `sensors/`, `actuators/`.
+
+### What It Does
+
+- Called by `knowledge_workflow.md` Step 2 (Classify) before page creation
+- Defines decision rules: USB+pin headers → `boards/`, bare chip → `microcontrollers/`, measures → `sensors/`, moves/controls → `actuators/`
+- **Mandatory agent behavior:** When subcategory not specified in task, agent MUST ask user — never infer from filename/content alone
+- `knowledge-wiki` validator checks subcategory against this skill's known list
+
+### Why This Approach
+
+**Problem:** Free-form subcategories lead to fragmentation (`mcus/`, `mcu/`, `microcontrollers/`, `chips/` all meaning the same thing). Agents can't reliably classify without explicit rules.
+
+**Solution:** Centralized, versioned classification logic in a skill:
+- **Single source of truth** — rules live in one place (`SKILL.md`)
+- **Agent-enforced** — workflow step calls skill, not ad-hoc logic
+- **Extensible** — new rules added to skill, all agents inherit automatically
+- **Auditable** — classification decision traceable to skill rules
+
+### Integration
+
+```yaml
+# In knowledge_workflow.md Step 2:
+# 1. Load knowledge-subcategory-classifier
+# 2. Apply decision rules to incoming entity
+# 3. If ambiguous → ask user
+# 4. Write page with correct subcategory in frontmatter
+# 5. Proceed to Step 3 (Create) → Step 5 (index_update)
+```
+
+### Extending
+
+Add new subcategory rules here when:
+- New category gets subcategories (e.g., `software/` → `libraries/`, `frameworks/`, `tools/`)
+- New device types emerge that don't fit existing four
+- User requests new classification dimension
